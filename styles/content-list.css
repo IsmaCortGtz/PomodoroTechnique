@@ -1,0 +1,43 @@
+/* List styles */
+.list-container {
+    overflow: auto;
+    height: auto;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+}
+
+.list-row{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.list-row:first-child{
+    border-radius: 15px 15px 0 0;
+}
+.list-row:last-child{
+    border-radius: 0 0 15px 15px;
+}
+
+.list-row:only-child{
+    border-radius: 15px 15px 15px 15px;
+}
+
+.list-cell{
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+    background-color: var(--table-background);
+}
+
+.cell-type {
+    flex: 2;
+}
+
+.list-header {
+    background-color: var(--main-color);
+}

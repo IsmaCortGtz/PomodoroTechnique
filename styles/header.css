@@ -1,0 +1,25 @@
+header {
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.header-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 0.2em;
+    flex: 1;
+    text-align: center;
+    align-self: center;
+}
+
+.header-option {
+    align-self: center;
+    padding: 0.5em;
+    transition: 0.1s;
+}
+
+.header-option:hover {
+    transform: scale(1.2);
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        
+
+        <link rel="manifest" href="manifest.json">
+        <link rel="apple-touch-icon" href="sources/icon.png">
+        <meta name="theme-color" content="#ff6347"/>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#ff6347">
+        <meta name="apple-mobile-web-app-title" content="Pomodoro Technique">
+        <meta name="msapplication-TileImage" content="sources/icon.png">
+        <meta name="msapplication-TileColor" content="#ffe1db">
+        
+
+        <meta property="og:url" content="./">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Pomodoro Technique Tool">
+        <meta property="og:image" content="./sources/icon.png">
+        <meta property="og:description" content="Tool for use the pomodoro technique with work blocks, breaks and long breaks. By Ismael Cortés Gutiérrez">
+
+        <title>Pomodoro</title>
+        <link rel="icon" type="image/png" href="sources/icon.png">
+
+        <link rel="stylesheet" href="styles/global.css">
+        <link rel="stylesheet" href="styles/header.css">
+        <link rel="stylesheet" href="styles/content-counter.css">
+        <link rel="stylesheet" href="styles/content-list.css">
+        <link rel="stylesheet" href="styles/options.css">
+        <link rel="stylesheet" href="styles/responsive.css">
+
+        <script src="scripts/alarm64.js" defer></script>
+        <script src="scripts/modules.js" defer></script>
+        <script src="scripts/index.js" defer></script>
+        <script src="scripts/events.js" defer></script>
+
+    </head>
+
+    <body>
+
+        <div class="options-menu-hover options"></div>
+        <div class="options-menu options">
+            <div class="options-list">
+
+                <div class="options-header">
+                    <span class="options-title">Settings</span>
+                    <span class="options-quit"> <img src="sources/exit.svg" height="16" width="16"> </span>
+                </div>
+
+
+                <div class="options-list-container">
+
+                    <div class="options-separator">Time</div>
+                    <div class="options-worklimit option-item">
+                        <span>Enter the minutes of the work block</span>
+                        <input type="number" value="25" id="workLimite">
+                    </div>
+
+                    <div class="options-breaklimit option-item">
+                        <span>Enter the minutes of the break block</span>
+                        <input type="number" value="5" id="breakLimite">
+                    </div>
+
+
+                    <div class="options-separator">Long Break</div>
+                    <div class="options-useLongBreak option-item">
+                        <span>Do you wanna activate the long breake?</span>
+                        <input type="checkbox" defaultChecked="true" checked="true" id="useLongBreak">
+                    </div>
+
+                    <div class="options-longBreakFrecuency option-item">
+                        <span>Enter the frequency of long break (Number of work blocks before it)</span>
+                        <input type="number" value="4" id="longBreakFrecuency">
+                    </div>
+
+                    <div class="options-longBreakLimit option-item">
+                        <span>Enter the minutes of the long break block</span>
+                        <input type="number" value="30" id="longBreakLimit">
+                    </div>
+
+
+                    <div class="options-separator">Alarm</div>
+                    <div class="options-defaultAlarm option-item">
+                        <span>Do you wanna use the default alarm?</span>
+                        <input type="checkbox" defaultChecked="true" checked="true" id="useCustomURL">
+                    </div>
+
+                    <div class="options-urlAlarm option-item">
+                        <span>Enter custom URL (MP3 file)</span>
+                        <input type="text" placeholder="Custom URL" id="customURL">
+                    </div>
+
+                    <div class="options-alarmVolume option-item">
+                        <span>Enter an Alarm Volume (Between 0 and 100)</span>
+                        <input type="number" min="0" max="100" value="100" id="alarmVolume">
+                    </div>
+
+                    <div class="options-alarmTest">
+                        <div class="options-alarmTest-button">Test alarm</div>
+                        <div class="options-alarmTestStop-button">Stop</div>
+                    </div>
+
+                    <div class="options-disclaimer">
+                        *Settings will be saved when you press x
+                    </div>
+                    <div class="options-disclaimer">
+                        Made by Ismael Cortés Gutiérrez
+                    </div>
+                    <div class="options-disclaimer">
+                        Icons of <a target="_blank" href="https://fontawesome.com/license">FontAwesome</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <header>
+            <span  class="header-title">Pomodoro Technique</span>
+            <span class="header-option"> <img src="sources/settings.svg" height="16" width="16"> </span>
+        </header>
+
+
+        <div class="container">
+
+            <div class="counter-container">
+                <div class="counter-numbers">
+                    <span class="counter-minutes">00</span>
+                    <span class="couter-separator" >:</span>
+                    <span class="counter-seconds">00</span>
+                </div>
+                <div class="counter-buttons">
+                    <div class="play-button"> <img src="sources/play.svg" height="16" width="16"> </div>
+                    <div class="alarm-button blocked"> <img src="sources/alarm.svg" height="16" width="16"> </div>
+                </div>
+            </div>
+
+            <div class="list-container">
+                <div class="list">
+                    <div class="list-row row-header">
+                        <div class="list-cell list-header">Beginning time</div>
+                        <div class="list-cell list-header">Ending time</div>
+                        <div class="list-cell cell-type list-header">Block type</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+            window.onload = () => {
+              'use strict';
+      
+              if ('serviceWorker' in navigator) {
+                  navigator.serviceWorker
+                           .register('./sw.js');
+              }
+            }
+        </script>
+
+    </body>
+</html>
